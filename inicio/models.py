@@ -7,9 +7,9 @@ class Estado(models.Model):
     nombre = models.CharField(max_length=100)
 
 class Dispositivo(models.Model):
-    nserie = models.CharField(max_length=100)
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
+    nserie = models.CharField(max_length=100)
     fcreacion = models.DateField(auto_now_add=True)
     fingreso = models.DateTimeField()
     tipo_dispositivo = models.CharField(max_length=100)
@@ -18,7 +18,7 @@ class Dispositivo(models.Model):
     observacion =models.models.TextField()
 
 # existe el tipo de dispositivo que puede ser notebook, pantalla, TV, Impresora, etc...
-# hay que realizar una class con el tipo de dispositivo para que a futuro pueda buscar por el tipo de dispositivo
+# hay que realizar una class con el tipo de dispositivo para que a futuro pueda buscar por dispositivo
 
 
 class Gerencia(models.Model):
@@ -63,6 +63,7 @@ class ubicacion(models.Model):
     comuna = models.CharField(max_length=100)
     observacion = models.TextChoices()
     dispositivo = models.ForeignKey(Dispositivo, on_delete=models.CASCADE)
+    
     
     
     
